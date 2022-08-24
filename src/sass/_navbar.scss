@@ -1,0 +1,183 @@
+
+.nav-bar{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 100%;
+    height: 80px;
+    z-index: 999;
+    padding: 0 2rem;
+    background-color: $secondary-color;
+
+    .logo{
+        img{
+            width: 40px;
+        }
+
+
+        &:hover{
+            width: 40px;
+            content: url('../assets/logo-hover.png');
+        }
+    }
+
+    nav{
+
+        a, i{
+            cursor: pointer;
+            margin: 0 2.5rem;
+            text-decoration: none;
+            font-size: 22px;
+            position: relative;
+
+            i {
+                transition: all 0.3s ease-out;
+            }
+
+            &:hover{
+                color: $pastel_yellow;
+    
+                svg {
+                    opacity: 0;
+                }
+    
+                &:after{
+                    opacity: 1;
+                }
+            }
+
+            &::after{
+                content: "";
+                font-size: 9px;
+                font-weight: 400;
+                letter-spacing: 2px;
+                position: absolute;
+                right: 40%;
+                bottom: 10%;
+                width: 100%;
+                text-align: center;
+                align-items: center;
+                opacity: 0;
+                transition: all 0.3s ease-out;
+            }
+
+        }
+
+        a.home-link{
+            &::after{
+                content: "HOME";
+            }
+        }
+        a.about-link{
+            &::after{
+                content: "ABOUT";
+            }
+        }
+        a.skills-link{
+            &::after{
+                content: "SKILLS";
+            }
+        }
+        a.work-link{
+            &::after{
+                content: "MY WORK";
+            }
+        }
+        a.contact-link{
+            &::after{
+                content: "CONTACT";
+            }
+        }
+        i.closed{
+            &::after{
+                content: "CLOSE";
+            }
+        }
+        i.config-light{
+            &:after {
+                content: "DARK";
+            }
+        }
+        i.config-dark{
+            &:after {
+                content: "LIGTH";
+            }
+        }
+            
+        a.active{
+            svg {
+                color: $pastel_yellow;
+            }
+        }
+
+        a.active-closed{
+            svg {
+                color: $red_color;
+            }
+        }
+        
+        .closed{
+            cursor: pointer;
+            padding: 5px;
+            font-size: 35px;
+            color: $red_color;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+    }
+
+    .menu-bars{
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease-out;
+    }
+ }
+
+ @media only screen and ( max-width: 1024px ){
+    .nav-bar{
+
+        .responsive_nav{
+            transform: none;
+        }
+
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            background: hsl( 0 0% 100% / 0.1);
+            backdrop-filter: blur(1rem);
+            z-index: 999;
+            transition: .5s;
+            transform: translateY( -100vh );
+
+            a, i{
+                margin-bottom: 50px;
+            }
+
+            .closed{
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        .menu-bars{
+            visibility: visible;
+            opacity: 1;
+            cursor: pointer;
+            font-size: 30px;
+        }
+    }
+ }

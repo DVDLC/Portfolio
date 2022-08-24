@@ -1,0 +1,214 @@
+.carousel {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 20em;
+    width: 1100px;
+
+    .previous,
+    .next {
+        position: absolute;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        color: $pastel-yellow;
+        font-size: 20px;
+
+
+    }
+
+    .previous{
+        left: 0;
+    }
+
+    .next{
+        right: 0;
+    }
+
+    button[ disabled ]{
+        color: #736207;
+        cursor: no-drop;
+    }
+
+    .card {
+        position: relative;
+        width: 300px;
+        height: 350px;
+        margin: 20px;
+
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: .5s;
+        }
+
+        .front {
+            transform: perspective(600px) rotateY(0deg);
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            h3 {
+                font-family: sans-serif;
+                background: rgba(0, 0, 0, .4);
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 45px;
+                line-height: 45px;
+                color: $white;
+                text-align: center;
+            }
+
+        }
+
+        .back {
+            transform: perspective(600px)rotateY(180deg);
+            background: $dark_grey;
+            padding: 15px;
+            color: $white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            box-shadow: 0, 5px, 10px #000;
+
+            h3 {
+                font-family: sans-serif;
+                font-size: 30px;
+                margin-top: 20px;
+                letter-spacing: 1px;
+            }
+
+            p {
+                font-family: sans-serif;
+                letter-spacing: 1px;
+                color: #f3f3f3;
+            }
+
+            .link {
+                font-size: 12px;
+                border-top: solid 1px #f3f3f3;
+                height: 50px;
+                line-height: 50px;
+
+                a {
+                    color: #f3f3f3;
+                    font-weight: 400;
+                    text-decoration: none;
+                    transition: color 0.2s ease-in;
+
+                    &:hover{
+                        color: $pastel-yellow;
+                    }
+                }
+            }
+
+            .tecnologies{
+                position: absolute;
+                margin: 0 5px 5px 0;
+                bottom: 0;
+                right: 0;
+    
+                .tech-icon{
+                    font-size: 20px;
+                    margin: 2px;
+                    transition: color .1s ease-in;
+                }
+    
+                .react{
+                    &:hover{
+                        color: $react-color;
+                    }
+                }
+
+                .sass{
+                    &:hover{
+                        color: $sass-color;
+                    }
+                }
+
+                .html{
+                    &:hover{
+                        color: $html-color;
+                    }
+                }
+
+                .css{
+                    &:hover{
+                        color: $css-color;
+                    }
+                }
+
+                .js{
+                    &:hover{
+                        color: $js-color;
+                    }
+                }
+
+                .nodejs{
+                    &:hover{
+                        color: $nodeJs-color;
+                    }
+                }
+
+                .db{
+                    &:hover{
+                        color: $js-color;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .front {
+                transform: perspective(600px)rotateY(180deg);
+            }
+
+            .back {
+                transform: perspective(600px)rotateY(360deg);
+            }
+        }
+    }
+}
+
+.card-animate{
+    display: inline-block;
+    opacity: 0;
+    animation: bounceIn 1s 1s;
+    animation-fill-mode: forwards;
+    min-width: 10px;
+}
+
+@for $i from 1 through 35{
+    .card-animate._#{$i}{
+        animation-delay: #{calc( $i / 10 )}s ;
+    }
+}
+
+
+@media only screen and ( max-width: 775px ){
+    .carousel{
+        .card{
+            width: 200px;
+            height: 300px;
+        }
+    }
+}
+
+@media only screen and ( max-width: 450px ){
+    .carousel{
+        margin-top: 15em;
+    }
+}

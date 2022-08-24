@@ -1,0 +1,237 @@
+.container-contact{
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    animation: fadeIn 2s forwards;
+
+    .contact-form{
+        flex-basis: 35%;
+        width: 100%;
+        margin-top: 20px;
+
+        .text-zone{
+
+            margin-bottom: 60px;
+
+            h1{
+                font-family: sans-serif;
+                font-size: 60px;
+                color: $white;
+                margin: 0;
+                font-weight: 600;  
+            }
+
+            p{
+                font-family: sans-serif;
+                color: $white;
+                margin-top: 20px;
+                font-size: 17px;
+                font-weight: 400;
+                animation: fadeIn 1s 1.8s backwards;
+            }
+        }
+
+        ul{
+            padding: 0;
+            margin: 0;
+
+            li{
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                margin-bottom: 10px;
+                overflow: hidden;
+                display: block;
+                position: relative;
+                opacity: 0;
+                animation: fadeInUp 2s 2s;
+                animation-fill-mode: forwards;
+                clear: both;
+                border-radius: 4px;
+
+                :focus{
+                    outline: none;
+                    border: 2px solid rgba(170, 54, 124, 1);
+                }
+            }
+
+            li.half{
+                width: 49%;
+                margin-left: 2%;
+                float: left;
+                clear: none;
+
+                &:first-child{
+                    margin-left: 0;
+                }
+
+            }
+        }
+
+        input[type='text'],
+        input[type='email']{
+            width: 100%;
+            border: 0;
+            background: $gradiant-bkcolor;
+            height: 50px;
+            font-size: 16px;
+            color: #fff;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        textarea{
+            resize: none;
+            width: 100%;
+            border: 0;
+            background: $gradiant-bkcolor;
+            height: 50px;
+            font-size: 16px;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: 150px;
+        }
+
+
+        .flat-button{
+          color: $pastel-yellow;  
+          background: 0 0;
+          font: 11px;
+          letter-spacing: 3px;
+          text-decoration: none;
+          padding: 8px 10px;
+          border:  1px solid $pastel-yellow;
+          float: right;
+          border-radius: 4px;
+        }
+    }
+
+    .info-map{
+        position: absolute;
+        z-index: 800;
+        background-color: #000;
+        color: #fff;
+        width: 267px;
+        padding: 20px;
+        font-size: 17px;
+        font-weight: 300;
+        opacity: 0;
+        animation: fadeIn 1s 1.5s;
+        animation-fill-mode: forwards;
+
+        span{
+            font-size: 16px;
+            display: block;
+            padding-top: 20px;
+            color: $pastel-yellow;
+        }
+    }
+
+    .map-wrapper{
+        flex-basis: 60%;
+        width: 100%;
+        height: 85%;
+        background: $gradiant-bkcolor ;
+    }
+
+    .leaflet-container{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        opacity: 0;
+        animation: backInRight 1s 1.2s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@media screen and ( max-width: 1210px ){
+    .container-contact{
+        
+        .contact-form{
+            flex-basis: 50%;
+
+            .text-zone{
+                margin-bottom: 40px;
+                h1{
+                    font-size: 40px;
+                }
+                p{
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .info-map{
+            width: 200px;
+            right: 6%;
+            top: 26%;
+            font-size: 14px;
+
+            span{
+                font-size: 13px;
+            }
+        }
+
+        .map-wrapper{
+            height: 50%;
+            flex-basis: 45%;
+        }
+    }
+}
+
+@media screen and ( max-width: 761px ){
+    .container-contact{
+        flex-direction: column;
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+        .contact-form{    
+            .text-zone{
+    
+                h1{
+                    font-size: 38px;
+                }
+                p{
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .info-map{
+            position: static;
+            width: 100%;
+
+            font-size: 17px;
+        
+            span{
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and ( max-width: 540px ){
+    .container-contact{
+
+        .contact-form{    
+            .text-zone{
+    
+                h1{
+                    font-size: 30px;
+                }
+                p{
+                    font-size: 12px;
+                }
+            }
+        }
+        .info-map{
+            display: none;
+        }
+
+        .map-wrapper{
+            display: none;
+        }
+    }
+}
