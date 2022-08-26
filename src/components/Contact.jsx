@@ -1,6 +1,7 @@
 import { useRef } from "react"
 import emailjs from "@emailjs/browser"
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
+import DSearch from '../assets/DSearch.png'
 
 
 const Contact = () => {
@@ -62,7 +63,7 @@ const Contact = () => {
                     <br />
                     México
                     <br />
-                    Coyoacán CDMX
+                    Coyoacán, CDMX
                     <br />
                     <span>dlcisneros97@gmail.com</span>
                 </div>
@@ -73,9 +74,10 @@ const Contact = () => {
                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
                         <Marker position={[ 19.3467, -99.16174 ]} >
-                            <Popup>DavidC. lives here, come over for a cup of coffee :D</Popup>
+                            <Popup>DavidC. lives around here, come over for a cup of coffee :D</Popup>
                         </Marker>
                     </MapContainer>
+                    <img className="dsearch-img" src={ DSearch } alt="david search" />
                 </div>
             </div>
         </>

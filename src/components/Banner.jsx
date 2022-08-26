@@ -14,7 +14,9 @@ const Banner = () => {
                     Web developer.
                 </h1>
                 <h2> Backend Jr Developer </h2>
-                <button className='btn-contact' >CONTACT</button>
+                <a href='#/contact' className='btn-contact' >
+                    CONTACT
+                </a>
             </div>
             <div className='d-container' >
                 <img className='banner-img' src={DHome} alt="david-home" />

@@ -4,6 +4,7 @@
     justify-content: space-around;
     align-items: center;
     animation: fadeIn 2s forwards;
+    padding: 0 20px;
 
     .contact-form{
         flex-basis: 35%;
@@ -110,6 +111,7 @@
 
     .info-map{
         position: absolute;
+        top: 200px;
         z-index: 800;
         background-color: #000;
         color: #fff;
@@ -131,9 +133,21 @@
 
     .map-wrapper{
         flex-basis: 60%;
+        position: relative;
         width: 100%;
         height: 85%;
         background: $gradiant-bkcolor ;
+
+        .dsearch-img{
+            position: absolute;
+            transform: scaleX( -1 );
+            bottom: -11.5px;
+            right: -90px;
+            opacity: 0;
+            animation: fadeIn 1s 2.3s;
+            animation-fill-mode: forwards;
+            
+        }
     }
 
     .leaflet-container{
@@ -144,6 +158,7 @@
         animation: backInRight 1s 1.2s;
         animation-fill-mode: forwards;
     }
+
 }
 
 @media screen and ( max-width: 1210px ){
@@ -177,6 +192,12 @@
         .map-wrapper{
             height: 50%;
             flex-basis: 45%;
+
+            .dsearch-img{
+                width: 280px;
+                bottom: 0;
+                right: -38px;
+            }
         }
     }
 }

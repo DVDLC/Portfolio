@@ -1,214 +1,297 @@
 .carousel {
     display: flex;
     position: relative;
-    flex-direction: row;
-    flex-flow: wrap;
+    gap: 25px;
     justify-content: center;
     align-items: center; 
-    margin-top: 20em;
-    width: 1100px;
 
-    .previous,
-    .next {
-        position: absolute;
+    .pre-btn,
+    .next-btn{
         cursor: pointer;
         background: transparent;
         border: none;
         color: $pastel-yellow;
         font-size: 20px;
-
-
     }
 
-    .previous{
-        left: 0;
+    .pre-btn{
+        position: absolute;
+        left: -50px;
     }
 
-    .next{
-        right: 0;
+    .next-btn{
+        position: absolute;
+        right: -50px;
     }
 
-    button[ disabled ]{
-        color: #736207;
-        cursor: no-drop;
+    button[disabled]{
+        color: #ffd7;
     }
 
-    .card {
-        position: relative;
+    .box{
         width: 300px;
-        height: 350px;
-        margin: 20px;
+        box-shadow: 2px 2px 30px rgba( 0, 0, 0, 0.8);
+        border-radius: 10px;
+        overflow: hidden;
 
-        .face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: .5s;
-        }
+        .card-img{
+            height: 450px;
+            position: relative;
 
-        .front {
-            transform: perspective(600px) rotateY(0deg);
-
-            img {
-                position: absolute;
+            img{
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
 
-            h3 {
-                font-family: sans-serif;
-                background: rgba(0, 0, 0, .4);
+            .overlay{
+                visibility: hidden;
                 position: absolute;
-                bottom: 0;
+                top: 50%;
+                left: 50%;
+                transform: translate( -50%, -50% );
                 width: 100%;
-                height: 45px;
-                line-height: 45px;
-                color: $white;
-                text-align: center;
-            }
+                height: 100%;
+                background: hsl( 0 0% 100% / 0.1);
+                backdrop-filter: blur(1rem);
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
+                .details{
+                    font-family: sans-serif;
+                    font-weight: 500;
+                }
+
+                &:hover{
+                    cursor: pointer;
+
+                    .details{
+                        color: #000;
+                        border-bottom: 2px solid transparent;
+                        border-image: $gradiant;
+                        border-image-slice: 1;
+                    }                    
+                }
+            }
         }
 
-        .back {
-            transform: perspective(600px)rotateY(180deg);
-            background: $dark_grey;
-            padding: 15px;
-            color: $white;
+        .card-img:hover .overlay{
+            visibility: visible;
+            animation: fadeIn .3s forwards;
+        }
+    }
+
+    .detail-box{
+        background: $gradiant-bkcolor;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        box-sizing: border-box;
+
+        .project-name{
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+
+            a{
+                color: $white; 
+                margin: 5px 0px;
+                font-weight: 700; 
+                letter-spacing: 0.5px;
+                text-decoration: none;
+                padding-right: 8px;
+            }
+
+            span{
+                color: $pastel-yellow;
+                font-weight: 400;
+            }
+        }
+        
+        .tech-container{
+            display: flex;
+            width: 60px;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .tech-icon {
+                font-size: 18px;
+                margin: 2px;
+                transition: color .1s ease-in;
+            }
+
+            .react {
+                &:hover {
+                    color: $react-color;
+                }
+            }
+        
+            .sass {
+                &:hover {
+                    color: $sass-color;
+                }
+            }
+        
+            .html {
+                &:hover {
+                    color: $html-color;
+                }
+            }
+        
+            .css {
+                &:hover {
+                    color: $css-color;
+                }
+            }
+        
+            .js {
+                &:hover {
+                    color: $js-color;
+                }
+            }
+        
+            .nodejs {
+                &:hover {
+                    color: $nodeJs-color;
+                }
+            }
+        
+            .db {
+                &:hover {
+                    color: $js-color;
+                }
+            }
+
+        }
+    }
+}
+
+.modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: grid;
+    place-items: center;
+    background: $gradiant-black;
+    z-index: 999;
+    animation: fadeIn 2s;
+    
+
+    .card-modal{
+        border-radius: 4px;
+        background: $gradiant ;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+        position: relative;
+    }
+
+    .project-details{
+        width: 50rem;
+        img{
+            display: block;
+            width: 100%;
+        }
+    }
+
+    #close{
+        cursor: pointer;
+        position: absolute;
+        font-size: 1.5rem;
+        top: 1.5rem;
+        right: 2rem;
+    }
+
+    .modal-info{
+        width: 40rem;
+        h2{
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            color: $white;
+        }
+
+        p{
+            font-size: 1.5rem;
+            color: $white;
+            margin-bottom: 2rem;
+        }
+
+        a{
             text-align: center;
-            box-shadow: 0, 5px, 10px #000;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 10rem;
+            text-decoration: none;
+            font-size: 13px;
+            color: $pastel-yellow;
+            font-weight: 600;
+            border: 1px solid $pastel-yellow;
+            padding: 1rem 1.5rem;
+            border-radius: 2px;
+            transition: all .3s ease-in;
+            
+            &:hover{
+                background-color: $pastel-yellow;
+                color: $primary-color;
+            }
+        }
+    }
+}
 
-            h3 {
-                font-family: sans-serif;
-                font-size: 30px;
-                margin-top: 20px;
-                letter-spacing: 1px;
+
+@media screen and ( max-width: 982px ) {
+    .modal{
+        .card-modal{
+            flex-direction: column;
+        }
+
+        .project-details{
+            margin-top: 2rem;
+            width: 40rem;
+        }
+    }
+}
+
+@media screen and ( max-width: 478px ) {
+    .modal{
+        .card-modal{
+            width: 300px;
+        }
+
+        .project-details{
+            margin-top: 2rem;
+            width: 27rem;
+        }
+
+        .modal-info{
+            width: 28rem;
+
+            h2{
+                font-size: 20px;
             }
 
-            p {
-                font-family: sans-serif;
-                letter-spacing: 1px;
-                color: #f3f3f3;
-            }
-
-            .link {
+            p{
                 font-size: 12px;
-                border-top: solid 1px #f3f3f3;
-                height: 50px;
-                line-height: 50px;
-
-                a {
-                    color: #f3f3f3;
-                    font-weight: 400;
-                    text-decoration: none;
-                    transition: color 0.2s ease-in;
-
-                    &:hover{
-                        color: $pastel-yellow;
-                    }
-                }
             }
-
-            .tecnologies{
-                position: absolute;
-                margin: 0 5px 5px 0;
-                bottom: 0;
-                right: 0;
+        }
+    }
+}
     
-                .tech-icon{
-                    font-size: 20px;
-                    margin: 2px;
-                    transition: color .1s ease-in;
-                }
-    
-                .react{
-                    &:hover{
-                        color: $react-color;
-                    }
-                }
 
-                .sass{
-                    &:hover{
-                        color: $sass-color;
-                    }
-                }
-
-                .html{
-                    &:hover{
-                        color: $html-color;
-                    }
-                }
-
-                .css{
-                    &:hover{
-                        color: $css-color;
-                    }
-                }
-
-                .js{
-                    &:hover{
-                        color: $js-color;
-                    }
-                }
-
-                .nodejs{
-                    &:hover{
-                        color: $nodeJs-color;
-                    }
-                }
-
-                .db{
-                    &:hover{
-                        color: $js-color;
-                    }
-                }
-            }
-        }
-
-        &:hover {
-            .front {
-                transform: perspective(600px)rotateY(180deg);
-            }
-
-            .back {
-                transform: perspective(600px)rotateY(360deg);
-            }
-        }
-    }
-}
-
-.card-animate{
-    display: inline-block;
-    opacity: 0;
-    animation: bounceIn 1s 1s;
-    animation-fill-mode: forwards;
-    min-width: 10px;
-}
-
-@for $i from 1 through 35{
-    .card-animate._#{$i}{
-        animation-delay: #{calc( $i / 10 )}s ;
-    }
-}
-
-
-@media only screen and ( max-width: 775px ){
+@media only screen and ( max-width: 400px ){
     .carousel{
-        .card{
-            width: 200px;
-            height: 300px;
+        .box{
+            margin-top: 100px;
+            width: 250px;
+
+            .card-img{
+                height: 350px;
+            }
         }
     }
 }
 
-@media only screen and ( max-width: 450px ){
-    .carousel{
-        margin-top: 15em;
-    }
-}

@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <HashRouter>
-        <Navbar />
+      <Navbar />
         <div className="container">
           <Routes>  
             <Route path="/" element={ <Banner /> } />

@@ -1,0 +1,304 @@
+
+.skills_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .info-skills{
+        width: 80%;
+        h1{
+            font-family: sans-serif;
+            font-size: 60px;
+            color: $white;
+            margin: 0;
+            font-weight: 600;
+            animation: fadeIn 1s 1.5s backwards;
+        }
+
+        h2{
+            font-family: sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            animation: fadeIn 1s 1.8s backwards;
+        }
+    }
+
+    .skill-bars{
+        width: 70%;
+        height: 800px;
+        padding: 25px 30px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        animation: fadeIn 1s 2.5s backwards;
+
+        .skill-tech{
+            flex-basis: 45%;
+            height: 50%;
+        }
+    
+        .menu{
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid $pastel_yellow;
+            padding: 0 0 5px 0;
+
+            h2{
+                font-size: 18px;
+                color: $white;
+               .icon-bars{
+                margin-left: 1rem;
+               } 
+            }
+        }
+
+
+        .bar{
+            display: none;
+            margin: 20px 0;
+
+            :first-child{
+                margin-top: 0px;
+            }
+
+            .info{
+                margin-bottom: 5px;
+                span{
+                   font-size: 12px;
+                   color: $white;
+                   font-weight: 500;
+                   opacity: 0;
+                    animation: fadeIn 0.5s 1.5s linear forwards;
+                }
+            }
+
+            .progress-line{
+                position: relative;
+                height: 10px;
+                width: 100%;
+                transform: scaleX(0);
+                transform-origin: left;
+                background: hsl( 0 0% 100% / 0.1);
+                backdrop-filter: blur(1rem);
+                box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.05),
+                                0px 1px rgba(0, 0, 0, .8);
+                animation: animate 1s cubic-bezier( 1, 0, 0.5, 1 ) forwards;
+                
+
+                span{
+                    height: 100%;
+                    width: 80%;
+                    background: $gradiant;
+                    position: absolute;
+                    border-radius: 10px;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    animation: animate 1s 1s cubic-bezier( 1, 0, 0.5, 1 ) forwards;
+                }
+
+                span::before{
+                    position: absolute;
+                    content: "";
+                    right: 0;
+                    top: -10px;
+                    height: 0px;
+                    width: 0px;
+                    border: 7px solid transparent;
+                    border-bottom-width: 0px;
+                    border-right-width: 0px;
+                    border-top-color: $pastel_yellow;
+                    opacity: 0;
+                    animation: fadeIn 0.5s 1.5s linear forwards;
+                }
+
+                span::after{
+                    position: absolute;
+                    content: "80%";
+                    right: 0;
+                    top: -25px;
+                    background: $pastel_yellow;
+                    font-size: 12px;
+                    font-weight: 500;
+                    padding: 1px 8px;
+                    border-radius: 3px;
+
+                    opacity: 0;
+                    animation: fadeIn 0.5s 1.5s linear forwards;
+                }
+            }
+
+            // porcentaje numero
+
+            .html span::after{
+                content: "90%";
+            }
+
+            .css span::after{
+                content: "70%";
+            }
+
+            .sass span::after{
+                content: "50%";
+            }
+
+            .js span::after{
+                content: "85%";
+            }
+
+            .react span::after{
+                content: "75%";
+            }
+
+            .nodejs span::after{
+                content: "90%";
+            }
+
+            .express span::after{
+                content: "100%";
+            }
+
+            .python span::after{
+                content: "50%";
+            }
+
+            .mongoose span::after{
+                content: "90%";
+            }
+
+            .sequelize span::after{
+                content: "90%";
+            }
+
+            // porcentaje barra
+
+            .html span{
+                width: 90%;
+            }
+
+            .css span{
+                width: 70%;
+            }
+
+            .sass span{
+                width: 50%;
+            }
+
+            .js span{
+                width: 85%;
+            }
+
+            .react span{
+                width: 75%;
+            }
+
+            .nodejs span{
+                width: 90%;
+            }
+
+            .express span{
+                width: 100%;
+            }
+
+            .python span{
+                width: 50%;
+            }
+
+            .mongoose span{
+                width: 90%;
+            }
+
+            .sequelize span{
+                width: 90%;
+            }
+        }
+
+        .active{
+            display: block;
+        }
+    }
+}
+
+@keyframes animate {
+    100%{
+        transform: scaleX(1);
+    }
+}
+ 
+@media screen and ( max-width: 1444px ){
+    .skills_container{
+        .skill-bars{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and ( max-width: 768px ){
+    .skills_container{
+        padding-top: 100px;
+        .skill-bars{
+            flex-direction: column;
+
+            .skill-tech{
+                width: 90%;
+                height: auto;
+            }
+
+            .menu{
+                h2{
+                    font-size: 15px;
+                }
+            }
+
+            .bar{
+                .info{
+                    span{
+                       font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and ( max-width: 540px ){
+    .skills_container{
+
+        padding-bottom: 20px;
+
+        .info-skills{
+            h1{
+                font-size: 30px;
+            }
+            h2{
+                font-size: 12px;
+            }
+        }
+
+        .skill-bars{
+
+            .skill-tech{
+                width: 90%;
+                height: auto;
+            }
+
+            .menu{
+                h2{
+                    font-size: 15px;
+                }
+            }
+
+            .bar{
+                .info{
+                    span{
+                       font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
