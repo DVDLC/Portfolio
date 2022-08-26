@@ -1,9 +1,9 @@
 export const data = [
     {
-        img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-img-5d1bb.appspot.com/o/Captura%20de%20Pantalla%202022-08-23%20a%20la(s)%2020.50.13.png?alt=media&token=3e16daa6-1809-4e0f-a85d-e3eb175b5d02',
+        img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-img-5d1bb.appspot.com/o/coffe-shop.png?alt=media&token=cdeca8fd-d0e6-4cc9-8a27-26b7ef7ec898',
         name: 'API REST COFFE SHOP',
         dl: 'https://github.com/DVDLC/coffee_store-API',
-        desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, nemo. Est, placeat velit sequi repellat blanditiis reiciendis quas laborum eligendi doloremque expedita, vitae maxime ab sint, minus nobis sed id.",
+        desc: "This application is inspired by a cafeteria, but it can be configured to work with different e-commerce without cart or orders, but it has an endpoint with a search engine as an addition. Made with Moongose",
         link: '',
         tech: ['nodejs', 'db',],
         dev: 'Backend'
@@ -12,7 +12,7 @@ export const data = [
         img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-img-5d1bb.appspot.com/o/Captura%20de%20Pantalla%202022-08-23%20a%20la(s)%2020.50.13.png?alt=media&token=3e16daa6-1809-4e0f-a85d-e3eb175b5d02',
         name: 'API REST ECOMMERCE',
         dl: 'https://github.com/DVDLC/Academlo_store-API',
-        desc: "",
+        desc: "This is a rest API of e-commerce where the user can make purchases and receive orders to his email. Made with Sequelize",
         link: 'https://documenter.getpostman.com/view/19136750/UzXRRvEE',
         tech: ['nodejs', 'db',],
         dev: 'Backend'
