@@ -65,7 +65,7 @@ const Contact = () => {
                     <br />
                     Coyoacán, CDMX
                     <br />
-                    <span>dlcisneros97@gmail.com</span>
+                    <span>Let's contact :D</span>
                 </div>
                 <div className="map-wrapper" >
                     <MapContainer center={[ 19.3467, -99.16174 ]} zoom={13}  >
