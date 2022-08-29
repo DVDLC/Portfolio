@@ -26,3 +26,8 @@ const Footer = () => {
 }
 
 export default Footer
+
+
+// https://github.com/DVDLC
+// https://www.linkedin.com/in/david-lagunes-cisneros-564753172/
+// https://twitter.com/DLC_97

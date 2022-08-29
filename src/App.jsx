@@ -1,5 +1,9 @@
 // React
-import { HashRouter, Route, Routes } from "react-router-dom"
+import { 
+  HashRouter, 
+  Route, 
+  Routes 
+} from "react-router-dom"
 // Components
 import About from "./components/About"
 import Banner from "./components/Banner"
@@ -8,6 +12,7 @@ import Skills from "./components/Skills"
 import Footer  from "./components/Footer"
 import MyWork from "./components/MyWork"
 import Contact from "./components/Contact"
+import Error from "./components/Error"
 // SASS
 import './sass/index.scss'
 
@@ -24,6 +29,7 @@ function App() {
             <Route path="/skills" element={ <Skills /> } />
             <Route path="/my-work" element={ <MyWork /> } />
             <Route path="/contact" element={ <Contact /> } />
+            <Route path="/*" element={ <Error/> } />
           </Routes>
         </div>
         <Footer />

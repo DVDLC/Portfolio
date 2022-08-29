@@ -1,0 +1,76 @@
+
+.error-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .error-wrapper{
+        text-align: center;
+
+        .text-glow{
+
+            .animation-span{
+                font-family: monospace ;
+                font-size: 250px;
+                font-weight: 700;
+                color: transparent;
+                text-transform: uppercase;
+                background-image: linear-gradient( to left, #2ecc71, #3498db, #9b59b6, #f39c12  );
+                -webkit-background-clip: text;
+                animation: animate 5s linear infinite;
+                -webkit-background-size: 500%;
+                background-size: 500%;
+            }
+            
+            @keyframes animate {
+                0%{
+                    background-position: 0 100%;
+                }
+                50%{
+                    background-position: 100% 0;
+                }
+                100%{
+                    background-position: 0 100%;
+                }
+            }
+        }
+
+        .text-base{
+            font-size: 20px;
+            color: $pastel-yellow;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+    }
+
+}
+
+@media screen and ( max-width: 768px ){
+    .error-container{
+        .error-wrapper{
+            .text-glow{
+                .animation-span{
+                    font-size: 200px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and ( max-width: 560px ){
+    .error-container{
+        .error-wrapper{
+            .text-glow{
+                .animation-span{
+                    font-size: 100px;
+                }
+            }
+
+            .text-base{
+                font-size: 13px;
+            }
+        }
+    }
+}

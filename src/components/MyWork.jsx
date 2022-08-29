@@ -17,7 +17,7 @@ const MyWork = () => {
                 </div>
             </div>
             <Slider data={ data } />
-    </section>
+        </section>
     )
 }
 

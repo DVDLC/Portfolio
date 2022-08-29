@@ -5,7 +5,7 @@ import ProjectCard from "./helpers/projectCard"
 
 const Slider = ({ data = [] }) => {
 
-    const [ actualWidth, setActualWidth ] = useState( 0 )
+    const [ actualWidth, setActualWidth ] = useState( window.innerWidth )
     const [ cardsPerPage, setCardsPerPage ] = useState( 3 )
     const [ currentPage, setCurrentPage ] = useState(1)
 
